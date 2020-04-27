@@ -719,7 +719,7 @@ level.Info(logger).Log(
 for _, elem := range elems {
     if a == 1 {
         something[i] = "yes"
-    } else
+    } else {
         something[i] = "no"
     }
 }
@@ -744,7 +744,7 @@ for _, elem := range elems {
 
 #### Wrap Errors for More Context; Don't Repeat "failed ..." There.
 
-우리는 `errors`를 위해 [`pkg/errors`](https://github.com/pkg/errors) 패키지를 사용합니다. 우리는 표준의 에러 래핑인 `fmt.Errorf` + `%w`보다 `pkh/errors` 방식을 선호합니다. `errors.Wrap`이 보다 명시적이기 때문입니다. 실수로 `%w` 를 `%v` 로 바꾸거나 일관되지 않은 문자열 방식을 사용하는 것이 흔하기 때문입니다.
+우리는 `errors`를 위해 [`pkg/errors`](https://github.com/pkg/errors) 패키지를 사용합니다. 우리는 표준의 에러 래핑인 `fmt.Errorf` + `%w`보다 `pkg/errors` 방식을 선호합니다. `errors.Wrap`이 보다 명시적이기 때문입니다. 실수로 `%w` 를 `%v` 로 바꾸거나 일관되지 않은 문자열 방식을 사용하는 것이 흔하기 때문입니다.
 
 [`pkg/errors.Wrap`](https://github.com/pkg/errors)를 사용해서 오류가 발생할 때, 이후의 컨텍스트에 대해서 오류를 래핑하세요. 보다 정보가 있는 변수를 컨텍스트에 담기 위해서는 `errors.Wrapf`를 사용하세요. 예로, file names, IDs 또는 실패할 수 있는 다른 것들이 있습니다.
 
